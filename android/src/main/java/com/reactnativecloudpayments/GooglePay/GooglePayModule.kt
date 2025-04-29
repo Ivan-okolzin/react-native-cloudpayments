@@ -43,7 +43,7 @@ class GooglePayModule(reactContext: ReactApplicationContext): ReactContextBaseJa
   @ReactMethod
   fun initialization(initialData: ReadableMap, paymentNetworks: ReadableArray) {
     val initialDataParsed = GooglePayMethodData(initialData);
-    val paymentNetworksList = paymentNetworks.toArrayList();
+    val paymentNetworksList: ArrayList<Any> = paymentNetworks.toArrayList().filterNotNull() as ArrayList<Any>
 
     countryCode = initialDataParsed.countryCode;
     currencyCode = initialDataParsed.currencyCode;

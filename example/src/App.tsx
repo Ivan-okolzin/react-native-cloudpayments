@@ -14,6 +14,20 @@ import {
 } from 'react-native-cloudpayments-sdk';
 import { PaymentServiceButton } from './components';
 
+declare module 'react-native' {
+  interface ViewProps {
+    children?: React.ReactNode;
+  }
+
+  interface TouchableOpacityProps {
+    children?: React.ReactNode;
+  }
+
+  interface TextProps {
+    children?: React.ReactNode;
+  }
+}
+
 const PAYMENT_DATA = Platform.select({
   ios: () => {
     return {
